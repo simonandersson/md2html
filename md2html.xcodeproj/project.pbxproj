@@ -20,6 +20,12 @@
 		3216055317FACE4C00DEA023 /* FredrikTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3216055217FACE4C00DEA023 /* FredrikTests.m */; };
 		3216066B17FAD0DC00DEA023 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3216052B17FACE4C00DEA023 /* AppKit.framework */; };
 		3216067817FAE1F900DEA023 /* libGHMarkdownParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3216067417FADF2F00DEA023 /* libGHMarkdownParser.a */; };
+		3292D7B118279E9500437C52 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292D7AC18279E9500437C52 /* DDHotKeyCenter.m */; };
+		3292D7B218279E9500437C52 /* DDHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292D7AE18279E9500437C52 /* DDHotKeyTextField.m */; };
+		3292D7B318279E9500437C52 /* DDHotKeyUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292D7B018279E9500437C52 /* DDHotKeyUtilities.m */; };
+		3292D7B518279EBD00437C52 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3292D7B418279EBD00437C52 /* Carbon.framework */; };
+		3292D7B81827A29200437C52 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3292D7B71827A29200437C52 /* ScriptingBridge.framework */; };
+		3292D7BA1827A44400437C52 /* markdown-mark-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3292D7B91827A44400437C52 /* markdown-mark-icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,16 @@
 		3216055017FACE4C00DEA023 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3216055217FACE4C00DEA023 /* FredrikTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FredrikTests.m; sourceTree = "<group>"; };
 		3216066F17FADF2F00DEA023 /* GHMarkdownParser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHMarkdownParser.xcodeproj; path = GHMarkdownParser/GHMarkdownParser/GHMarkdownParser.xcodeproj; sourceTree = "<group>"; };
+		3292D7AB18279E9500437C52 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
+		3292D7AC18279E9500437C52 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
+		3292D7AD18279E9500437C52 /* DDHotKeyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyTextField.h; sourceTree = "<group>"; };
+		3292D7AE18279E9500437C52 /* DDHotKeyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyTextField.m; sourceTree = "<group>"; };
+		3292D7AF18279E9500437C52 /* DDHotKeyUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyUtilities.h; sourceTree = "<group>"; };
+		3292D7B018279E9500437C52 /* DDHotKeyUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyUtilities.m; sourceTree = "<group>"; };
+		3292D7B418279EBD00437C52 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		3292D7B61827A27300437C52 /* Finder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Finder.h; sourceTree = "<group>"; };
+		3292D7B71827A29200437C52 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		3292D7B91827A44400437C52 /* markdown-mark-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "markdown-mark-icon.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3292D7B81827A29200437C52 /* ScriptingBridge.framework in Frameworks */,
+				3292D7B518279EBD00437C52 /* Carbon.framework in Frameworks */,
 				3216067817FAE1F900DEA023 /* libGHMarkdownParser.a in Frameworks */,
 				3216066B17FAD0DC00DEA023 /* AppKit.framework in Frameworks */,
 				3216052917FACE4C00DEA023 /* Cocoa.framework in Frameworks */,
@@ -95,6 +113,7 @@
 		3216051C17FACE4C00DEA023 = {
 			isa = PBXGroup;
 			children = (
+				3292D7B91827A44400437C52 /* markdown-mark-icon.icns */,
 				3216052E17FACE4C00DEA023 /* md2html */,
 				3216054C17FACE4C00DEA023 /* FredrikTests */,
 				3216052717FACE4C00DEA023 /* Frameworks */,
@@ -114,6 +133,9 @@
 		3216052717FACE4C00DEA023 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3292D7B71827A29200437C52 /* ScriptingBridge.framework */,
+				3292D7B418279EBD00437C52 /* Carbon.framework */,
+				3292D7AA18279E9500437C52 /* DDHotKey */,
 				3216052817FACE4C00DEA023 /* Cocoa.framework */,
 				3216054717FACE4C00DEA023 /* XCTest.framework */,
 				3216052A17FACE4C00DEA023 /* Other Frameworks */,
@@ -140,6 +162,7 @@
 				3216053D17FACE4C00DEA023 /* MainMenu.xib */,
 				3216054017FACE4C00DEA023 /* Images.xcassets */,
 				3216052F17FACE4C00DEA023 /* Supporting Files */,
+				3292D7B61827A27300437C52 /* Finder.h */,
 			);
 			path = md2html;
 			sourceTree = "<group>";
@@ -180,6 +203,20 @@
 				3216067417FADF2F00DEA023 /* libGHMarkdownParser.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3292D7AA18279E9500437C52 /* DDHotKey */ = {
+			isa = PBXGroup;
+			children = (
+				3292D7AB18279E9500437C52 /* DDHotKeyCenter.h */,
+				3292D7AC18279E9500437C52 /* DDHotKeyCenter.m */,
+				3292D7AD18279E9500437C52 /* DDHotKeyTextField.h */,
+				3292D7AE18279E9500437C52 /* DDHotKeyTextField.m */,
+				3292D7AF18279E9500437C52 /* DDHotKeyUtilities.h */,
+				3292D7B018279E9500437C52 /* DDHotKeyUtilities.m */,
+			);
+			name = DDHotKey;
+			path = md2html/DDHotKey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +315,7 @@
 				3216053317FACE4C00DEA023 /* InfoPlist.strings in Resources */,
 				3216054117FACE4C00DEA023 /* Images.xcassets in Resources */,
 				3216053917FACE4C00DEA023 /* Credits.rtf in Resources */,
+				3292D7BA1827A44400437C52 /* markdown-mark-icon.icns in Resources */,
 				3216053F17FACE4C00DEA023 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3216053C17FACE4C00DEA023 /* AppDelegate.m in Sources */,
+				3292D7B118279E9500437C52 /* DDHotKeyCenter.m in Sources */,
+				3292D7B318279E9500437C52 /* DDHotKeyUtilities.m in Sources */,
 				3216053517FACE4C00DEA023 /* main.m in Sources */,
+				3292D7B218279E9500437C52 /* DDHotKeyTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

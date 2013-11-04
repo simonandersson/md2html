@@ -10,11 +10,29 @@
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
 #import "GHMarkdownParser.h"
+#import "DDHotKeyCenter.h"
+#import "Finder.h"
+
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    DDHotKeyCenter *c = [DDHotKeyCenter sharedHotKeyCenter];
+    [c registerHotKeyWithKeyCode:0x2E modifierFlags:(NSCommandKeyMask|NSShiftKeyMask) task:^(NSEvent *event) {
+        
+        FinderApplication * finder = [SBApplication applicationWithBundleIdentifier:@"com.apple.finder"];
+        SBElementArray * selection = [[finder selection] get];
+        
+        NSArray * items = [selection arrayByApplyingSelector:@selector(URL)];
+        for (NSString * item in items) {
+            
+            NSString *filename = [item lastPathComponent];
+            NSString *ext = [filename pathExtension];
+            NSURL *url = [NSURL URLWithString:item];
+            if ([[ext lowercaseString] isEqualToString:@"md"]) {
+                [self storeAndParseURL:url];
+            }
+        }
+    }];
 }
 
 - (IBAction)browserClick:(id)sender {
@@ -25,7 +43,6 @@
         NSArray *files = [dialog URLs];
         
         for (NSURL *url in files) {
-            
             
             NSString *filename = [[url absoluteString] lastPathComponent];
             NSString *ext = [filename pathExtension];
@@ -49,14 +66,35 @@
     [output writeToURL:[[url URLByDeletingLastPathComponent] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.html", filename] isDirectory:NO] atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
     if (error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
-    else {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
-        [alert setMessageText:[NSString stringWithFormat:@"Export succeded.\nFile can be found at: %@", [[url URLByDeletingLastPathComponent] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.html", filename]].relativePath ]];
+        [alert setMessageText:[NSString stringWithFormat:@"Export failed."]];
         [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:0];
+        [NSApp requestUserAttention:NSCriticalRequest];
     }
+    else {
+        [NSApp requestUserAttention:NSInformationalRequest];
+    }
+}
+
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+    for (NSString *path in filenames) {
+        
+        NSURL *url = [NSURL fileURLWithPath:path];
+        
+        NSString *filename = [[url absoluteString] lastPathComponent];
+        NSString *ext = [filename pathExtension];
+        if ([[ext lowercaseString] isEqualToString:@"md"]) {
+            [self storeAndParseURL:url];
+        }
+    }
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    if(flag==NO){
+		[self.window makeKeyAndOrderFront:self];
+	}
+	return YES;
 }
 
 @end
