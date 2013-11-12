@@ -24,5 +24,6 @@
 #define TABSTOP 4
 #define PATH_FIND "/usr/bin/find"
 #define PATH_SED "/usr/bin/sed"
+#define WITH_ID_ANCHOR 1
 
 #endif/* __AC_MARKDOWN_D */

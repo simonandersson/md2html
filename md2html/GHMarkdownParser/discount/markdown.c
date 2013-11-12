@@ -287,7 +287,7 @@ htmlblock(Paragraph *p, struct kw *tag, int *unclosed)
 		}
 	    }
 	    else { 
-		if ( closing = (c == '/') ) c = flogetc(&f);
+		if ( (closing = (c == '/')) ) c = flogetc(&f);
 
 		for ( i=0; i < tag->size; c=flogetc(&f) ) {
 		    if ( tag->id[i++] != toupper(c) )

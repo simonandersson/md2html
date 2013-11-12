@@ -1363,7 +1363,6 @@ text(MMIOT *f)
     S(f->in) = f->isp = 0;
 } /* text */
 
-
 /* print a header block
  */
 static void
@@ -1371,7 +1370,7 @@ printheader(Paragraph *pp, MMIOT *f)
 {
 #if WITH_ID_ANCHOR
     Qprintf(f, "<h%d", pp->hnumber);
-    if ( f->flags & MKD_TOC ) {
+    if ( MKD_TOC ) {
 	Qstring(" id=\"", f);
 	mkd_string_to_anchor(T(pp->text->text),
 			     S(pp->text->text),

@@ -234,12 +234,12 @@ mkd_string_to_anchor(char *s, int len, mkd_sta_function_t outchar,
 	c = line[i];
 	if ( labelformat ) {
 	    if ( isalnum(c) || (c == '_') || (c == ':') || (c == '-') || (c == '.' ) )
-		(*outchar)(c, out);
+		(*outchar)(tolower(c), out);
 	    else
-		(*outchar)('.', out);
+		(*outchar)('-', out);
 	}
 	else
-	    (*outchar)(c,out);
+	    (*outchar)(tolower(c),out);
     }
 	
     if (line)
